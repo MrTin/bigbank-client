@@ -1,4 +1,5 @@
 # Bigbank Ruby Client
+[![CircleCI](https://circleci.com/gh/MrTin/bigbank-client.svg?style=svg)](https://circleci.com/gh/MrTin/bigbank-client)
 
 ## Installation
 Add it to your Gemfile:
