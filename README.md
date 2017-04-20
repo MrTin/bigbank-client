@@ -37,7 +37,7 @@ end
 `config/initializers/bigbank_client.rb`)
 
 ## Usage
-## Fields
+### Fields
 This will return a list of all the fields available for the partner.
 ```ruby
 Bigbank::Client::Fields.all
