@@ -47,10 +47,9 @@ Bigbank::Client::Fields.all
 
 ## Using a proxy
 If you are running into SSL issue while making `https://` requests you are
-advised to set `verify_ssl = false`. Don't do this unless you really need to,
-you are essentially turning off verification off the SSL certificates which
-could potentially open you up to middleman attacks when used in an uncontrolled
-manner.
+advised to set `verify_ssl = false`. Just don't do this in production unless
+you need to (to eg. make a proxy work) because this opens up an attack vector
+on your software.
 
 ## Development
 
