@@ -8,13 +8,14 @@ Add it to your Gemfile:
 gem 'bigbank-client'
 ```
 
-Configure the client
-```ruby
-Bigbank::Client.configure do |config|
-  config.endpoint = "https://ansok.bigbank.se/api/"
-  config.partner_key = "super-secret-partner-key"
-end
+## Bigbank requirements
+- You need to send them an `IP or IP Range` for them to whitelist requests from
+your servers.
+- Request a `partner key` to authorize your requests.
 
+## Configuration
+
+```ruby
 # Available endpoints:
 # - Estonia: https://www.bigbank.ee/api/
 # - Latvia: https://www.bigbank.lv/api/
@@ -22,26 +23,53 @@ end
 # - Finland: https://www.bigbank.fi/api/
 # - Sweden: https://www.bigbank.se/api/
 # - Spain: https://www.bigbank.es/api/
-```
 
-## Bigbank requirements
-- Register partner IP in their system to allow requests.
-- Request a partner key.
+Bigbank::Client.configure do |config|
+  config.endpoint = "https://ansok.bigbank.se/api/"
+  config.partner_key = "super-secret-partner-key"
+  # config.adapter = Faraday.default_adapter
+  # config.verify_ssl = true
+  # config.enable_proxy = false
+  # config.proxy = "https://username:password@proxy.example.com/"
+end
+```
+(If you are using Rails you can create an initializer at
+`config/initializers/bigbank_client.rb`)
 
 ## Usage
-TODO: Write usage instructions here
+## Fields
+This will return a list of all the fields available for the partner.
+```ruby
+Bigbank::Client::Fields.all
+# => TODO: ...
+```
+
+## Using a proxy
+If you are running into SSL issue while making `https://` requests you are
+advised to set `verify_ssl = false`. Don't do this unless you really need to,
+you are essentially turning off verification off the SSL certificates which
+could potentially open you up to middleman attacks when used in an uncontrolled
+manner.
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+After checking out the repo, run `bin/setup` to install dependencies. Then, run
+`rake test` to run the tests. You can also run `bin/console` for an interactive
+prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To install this gem onto your local machine, run `bundle exec rake install`. To
+release a new version, update the version number in `version.rb`, and then run
+`bundle exec rake release`, which will create a git tag for the version, push
+git commits and tags, and push the `.gem` file to
+[rubygems.org](https://rubygems.org).
 
 ## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/mrtin/bigbank-client. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at
+https://github.com/mrtin/bigbank-client. This project is intended to be a safe,
+welcoming space for collaboration, and contributors are expected to adhere to
+the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
-
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+The gem is available as open source under the terms of the
+[MIT License](http://opensource.org/licenses/MIT).

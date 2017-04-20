@@ -17,6 +17,8 @@ module Bigbank
             builder.options[:open_timeout] = config.open_timeout
             builder.options[:timeout] = config.timeout
             builder.adapter config.adapter
+            builder.ssl.verify = config.verify_ssl
+            builder.proxy(config.proxy) if config.enable_proxy?
           end
       end
 

@@ -5,13 +5,23 @@ module Bigbank
                     :partner_key,
                     :open_timeout,
                     :timeout,
-                    :adapter
+                    :adapter,
+                    :verify_ssl,
+                    :enable_proxy,
+                    :proxy
 
       def initialize
         @endpoint = "https://ansok.bigbank.se/api"
         @open_timeout = 5
         @timeout = 15
         @adapter = Faraday.default_adapter
+        @verify_ssl = true
+        @enable_proxy = false
+        @proxy = ""
+      end
+
+      def enable_proxy?
+        !!enable_proxy
       end
     end
   end
