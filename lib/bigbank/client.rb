@@ -4,7 +4,10 @@ require 'faraday_middleware'
 require_relative "client/version"
 require_relative "client/error"
 require_relative "client/config"
+
+require_relative "client/endpoint"
 require_relative "client/fields"
+require_relative "client/application"
 
 module Bigbank
   module Client

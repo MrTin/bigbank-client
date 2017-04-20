@@ -51,8 +51,8 @@ response.body
 ## Using a proxy
 If you are running into SSL issue while making `https://` requests you are
 advised to set `verify_ssl = false`. Just don't do this in production unless
-you need to (to eg. make a proxy work) because this opens up an attack vector
-on your software.
+you need to (e.g. use a proxy) because this opens up a potential attack vector
+in your software.
 
 ## Development
 
