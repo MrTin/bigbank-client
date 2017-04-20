@@ -1,6 +1,6 @@
 module Bigbank
   module Client
-    class Fields < Endpoint
+    class Field < Endpoint
       def self.all
         self.new.all
       end

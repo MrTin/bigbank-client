@@ -6,8 +6,8 @@ require_relative "client/error"
 require_relative "client/config"
 
 require_relative "client/endpoint"
-require_relative "client/fields"
-require_relative "client/application"
+require_relative "client/endpoints/field"
+require_relative "client/endpoints/application"
 
 module Bigbank
   module Client
