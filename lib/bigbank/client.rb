@@ -1,4 +1,5 @@
 require 'faraday'
+require 'faraday_middleware'
 
 require_relative "client/version"
 require_relative "client/error"

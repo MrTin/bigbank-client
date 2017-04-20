@@ -11,7 +11,7 @@ module Bigbank
                     :proxy
 
       def initialize
-        @endpoint = "https://ansok.bigbank.se/api"
+        @endpoint = "https://ansok.bigbank.se/"
         @open_timeout = 5
         @timeout = 15
         @adapter = Faraday.default_adapter

@@ -17,15 +17,15 @@ your servers.
 
 ```ruby
 # Available endpoints:
-# - Estonia: https://www.bigbank.ee/api/
-# - Latvia: https://www.bigbank.lv/api/
-# - Lithuania: https://www.bigbank.lt/api/
-# - Finland: https://www.bigbank.fi/api/
-# - Sweden: https://www.bigbank.se/api/
-# - Spain: https://www.bigbank.es/api/
+# - Estonia: https://www.bigbank.ee/
+# - Latvia: https://www.bigbank.lv/
+# - Lithuania: https://www.bigbank.lt/
+# - Finland: https://www.bigbank.fi/
+# - Sweden: https://www.bigbank.se/
+# - Spain: https://www.bigbank.es/
 
 Bigbank::Client.configure do |config|
-  config.endpoint = "https://ansok.bigbank.se/api/"
+  config.endpoint = "https://ansok.bigbank.se/"
   config.partner_key = "super-secret-partner-key"
   # config.adapter = Faraday.default_adapter
   # config.verify_ssl = true
@@ -41,8 +41,11 @@ end
 This will return a list of all the fields available for you to dynamically
 build an application form for requesting loan contracts.
 ```ruby
-Bigbank::Client::Fields.all
-# => TODO: ...
+response = Bigbank::Client::Fields.all
+# => #<Faraday::Response:0x007fab1f117c28...
+
+response.body
+# => [{"input_type"=>"text", "input_name"=>"Lånebelopp", "input_id"=>"100"...
 ```
 
 ## Using a proxy
