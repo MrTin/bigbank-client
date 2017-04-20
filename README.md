@@ -11,9 +11,22 @@ gem 'bigbank-client'
 Configure the client
 ```ruby
 Bigbank::Client.configure do |config|
-  config.endpoint = "https://ansok.bigbank.se/api"
+  config.endpoint = "https://ansok.bigbank.se/api/"
+  config.partner_key = "super-secret-partner-key"
 end
+
+# Available endpoints:
+# - Estonia: https://www.bigbank.ee/api/
+# - Latvia: https://www.bigbank.lv/api/
+# - Lithuania: https://www.bigbank.lt/api/
+# - Finland: https://www.bigbank.fi/api/
+# - Sweden: https://www.bigbank.se/api/
+# - Spain: https://www.bigbank.es/api/
 ```
+
+## Bigbank requirements
+- Register partner IP in their system to allow requests.
+- Request a partner key.
 
 ## Usage
 TODO: Write usage instructions here

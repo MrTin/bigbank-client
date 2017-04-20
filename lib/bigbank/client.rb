@@ -1,6 +1,9 @@
+require 'faraday'
+
 require_relative "client/version"
 require_relative "client/error"
 require_relative "client/config"
+require_relative "client/fields"
 
 module Bigbank
   module Client
@@ -14,3 +17,5 @@ module Bigbank
     end
   end
 end
+
+Bigbank::Client.configure {}

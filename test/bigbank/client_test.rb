@@ -5,10 +5,6 @@ describe Bigbank::Client do
   let(:endpoint_url) { "https://ansok.bigbank.se/api" }
   let(:other_endpoint_url) { "http://another-apply.example.com/" }
 
-  before do
-    subject.configure {} # setup the config object
-  end
-
   describe "version" do
     it "is set" do
       refute_nil subject::VERSION
