@@ -38,7 +38,8 @@ end
 
 ## Usage
 ### Fields
-This will return a list of all the fields available for the partner.
+This will return a list of all the fields available for you to dynamically
+build an application form for requesting loan contracts.
 ```ruby
 Bigbank::Client::Fields.all
 # => TODO: ...
