@@ -41,7 +41,7 @@ with as if it was an Enumerable.
 All but the following methods on a will be passed on to the resulting body:
 - `#success?`
 - `#errors?`
-- `#response` access the underlying Faraday request. See [lostisland/faraday](https://github.com/lostisland/faraday).
+- `#response` access the underlying request object (see [lostisland/faraday](https://github.com/lostisland/faraday) for more info).
 
 ### Example result
 ```ruby
