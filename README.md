@@ -36,20 +36,21 @@ end
 
 ## Usage
 Endpoint requests will return a `Bigbank::Client::Result` which you can work
-with as if it was an Enumerable. Example:
+with as if it was an Enumerable.
+
+All but the following methods on a will be passed on to the resulting body:
+- `#success?`
+- `#errors?`
+- `#response` access the underlying Faraday request
+object (see github.com/lostisland/faraday).
+
+### Example result
 ```ruby
 fields = Bigbank::Client::Fields.all
 #=> <Bigbank::Client::Result:0x007fc7698a3b48>
 
 fields.each { |field| puts field }
 ```
-
-All but the following methods on a `Bigbank::Client::Result` will be passed on
-to the resulting body:
-- `#response` access the underlying Faraday request
-object (see github.com/lostisland/faraday).
-- `#success?`
-- `#errors?`
 
 ## Supported endpoints
 ### Fields
