@@ -2,12 +2,8 @@ require "test_helper"
 
 describe Bigbank::Client do
   subject { Bigbank::Client }
-  let(:endpoint_url) { "https://ansok.bigbank.se/api" }
+  let(:endpoint_url) { "https://ansok.bigbank.se/" }
   let(:other_endpoint_url) { "http://another-apply.example.com/" }
-
-  before do
-    subject.configure {} # setup the config object
-  end
 
   describe "version" do
     it "is set" do
