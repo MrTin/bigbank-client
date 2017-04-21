@@ -3,7 +3,6 @@
 
 ## Installation
 Add it to your Gemfile:
-
 ```ruby
 gem 'bigbank-client'
 ```
@@ -14,7 +13,8 @@ your servers.
 - Request a `partner key` to authorize your requests.
 
 ## Configuration
-
+For Rails: you can always put this inside an initializer at e.g.
+`config/initializers/bigbank_client.rb`
 ```ruby
 # Available endpoints:
 # - Estonia: https://www.bigbank.ee/
@@ -33,8 +33,6 @@ Bigbank::Client.configure do |config|
   # config.proxy = "https://username:password@proxy.example.com/"
 end
 ```
-(If you are using Rails you can create an initializer at
-`config/initializers/bigbank_client.rb`)
 
 ## Usage
 Endpoint requests will return a `Bigbank::Client::Result` which you can work
@@ -46,8 +44,9 @@ fields = Bigbank::Client::Fields.all
 fields.each { |field| puts field }
 ```
 
-All but the following methods be passed on to the resulting body:
-- `Bigbank::Client::Result#response` access the underlying Faraday request object (see github.com/lostisland/faraday).
+All but the following methods will be passed on to the resulting body:
+- `Bigbank::Client::Result#response` access the underlying Faraday request
+object (see github.com/lostisland/faraday).
 
 ## Supported endpoints
 ### Fields
@@ -72,11 +71,10 @@ response = Bigbank::Client::Application.create({
 ## Using a proxy
 If you are running into SSL issue while making `https://` requests you are
 advised to set `verify_ssl = false`. Just don't do this in production unless
-you need to (e.g. use a proxy) because this opens up a potential attack vector
-in your software.
+you really need it e.g. to use a proxy, as this opens up a potential attack
+vector in your software.
 
 ## Development
-
 After checking out the repo, run `bin/setup` to install dependencies. Then, run
 `rake test` to run the tests. You can also run `bin/console` for an interactive
 prompt that will allow you to experiment.
