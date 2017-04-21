@@ -10,7 +10,7 @@ module Bigbank
           request.url "/api/?get=values&key=#{config.partner_key}"
         end
 
-        response
+        Result.new(response)
       end
     end
   end

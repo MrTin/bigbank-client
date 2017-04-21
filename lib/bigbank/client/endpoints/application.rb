@@ -17,7 +17,7 @@ module Bigbank
           request.params = { key: config.partner_key }.merge!(params)
         end
 
-        response
+        Result.new(response)
       end
     end
   end
