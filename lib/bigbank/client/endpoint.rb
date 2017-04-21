@@ -4,6 +4,7 @@ module Bigbank
       def connection
         @connection ||=
           ::Faraday.new(url: config.endpoint) do |builder|
+            builder.use ::Faraday::Request::UrlEncoded
             builder.response :json, :content_type => /\bjson$/
             builder.headers["User-Agent"] = user_agent
             builder.options[:open_timeout] = config.open_timeout

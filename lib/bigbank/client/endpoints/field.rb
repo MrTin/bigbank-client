@@ -7,7 +7,8 @@ module Bigbank
 
       def all
         response = connection.get do |request|
-          request.url "/api/?get=values&key=#{config.partner_key}"
+          request.url "/api/"
+          request.params = { get: "values", key: config.partner_key }
         end
 
         Result.new(response)
