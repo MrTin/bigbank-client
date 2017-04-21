@@ -37,15 +37,36 @@ end
 `config/initializers/bigbank_client.rb`)
 
 ## Usage
-### Fields
-This will return a list of all the fields available for you to dynamically
-build an application form for requesting loan contracts.
+Endpoint requests will return a `Bigbank::Client::Result` which you can work
+with as if it was an Enumerable. Example:
 ```ruby
-response = Bigbank::Client::Fields.all
-# => #<Faraday::Response:0x007fab1f117c28...
+fields = Bigbank::Client::Fields.all
+#=> <Bigbank::Client::Result:0x007fc7698a3b48>
 
-response.body
-# => [{"input_type"=>"text", "input_name"=>"Lånebelopp", "input_id"=>"100"...
+fields.each { |field| puts field }
+```
+
+All but the following methods be passed on to the resulting body:
+- `Bigbank::Client::Result#response` access the underlying Faraday request object (see github.com/lostisland/faraday).
+
+## Supported endpoints
+### Fields
+Retrieve all fields to build a loan application form.
+```ruby
+fields = Bigbank::Client::Fields.all
+# => <Bigbank::Client::Result:0x007fc7698a3b48>
+
+fields.each { |field| puts field }
+```
+
+### Application
+Create a loan application.
+```ruby
+response = Bigbank::Client::Application.create({
+    ...
+  })
+# => #<Bigbank::Client::Result:0x007fc7698a3b48>
+
 ```
 
 ## Using a proxy
