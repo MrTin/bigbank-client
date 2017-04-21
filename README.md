@@ -13,7 +13,7 @@ your servers.
 - Request a `partner key` to authorize your requests.
 
 ## Configuration
-For Rails: you can always put this inside an initializer at e.g.
+**Rails:** put this inside an initializer at e.g.
 `config/initializers/bigbank_client.rb`
 ```ruby
 # Available endpoints:
