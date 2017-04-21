@@ -44,9 +44,12 @@ fields = Bigbank::Client::Fields.all
 fields.each { |field| puts field }
 ```
 
-All but the following methods will be passed on to the resulting body:
-- `Bigbank::Client::Result#response` access the underlying Faraday request
+All but the following methods on a `Bigbank::Client::Result` will be passed on
+to the resulting body:
+- `#response` access the underlying Faraday request
 object (see github.com/lostisland/faraday).
+- `#success?`
+- `#errors?`
 
 ## Supported endpoints
 ### Fields
