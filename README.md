@@ -35,10 +35,14 @@ end
 ```
 
 ## Usage
-Endpoint requests will return a `Bigbank::Client::Result` which you can work
-with as if it was an Enumerable.
+Endpoint requests will return a `Bigbank::Client::Result` or a child of this
+class e.g. `Bigbank::Client::ApplicationResult` which you can then work with as
+if it was an Enumerable.
 
-All but the following methods on a will be passed on to the resulting body:
+Any method that you call and is not defined on the result class will be
+forwarded to the resulting body which is a JSON hash. This means that you can
+work directly with the result as an `Enumarable` calling e.g. `#each` or
+`#count`. The following methods are however available on all results:
 - `#success?`
 - `#errors?`
 - `#response` access the underlying request object (see [lostisland/faraday](https://github.com/lostisland/faraday) for more info).
@@ -62,14 +66,17 @@ fields.each { |field| puts field }
 ```
 
 ### Application
-Create a loan application.
+Create a loan application. You pass in the fields, they are however specific to
+your application so you not to look up what fields you are expected to POST.
 ```ruby
 response = Bigbank::Client::Application.create({
     ...
   })
 # => #<Bigbank::Client::Result:0x007fc7698a3b48>
-
 ```
+
+#### Extra methods the result of this endpoint:
+- `#contract` downloads the contract and returns a `StringIO` or `nil`
 
 ## Using a proxy
 If you are running into SSL issue while making `https://` requests you are

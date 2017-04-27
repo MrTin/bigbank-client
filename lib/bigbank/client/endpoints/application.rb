@@ -18,7 +18,39 @@ module Bigbank
           request.body = { key: config.partner_key }.merge!(post_params)
         end
 
-        Result.new(response)
+        ApplicationResult.new(response, connection)
+      end
+
+      class ApplicationResult < Result
+        attr_reader :connection
+
+        def initialize(result, connection)
+          # TODO: Better make the connection statically available?
+          @connection = connection
+          super(result)
+        end
+
+        # Public: Returns the downloaded contract
+        #
+        # Returns a @StringIO with the contract buffer or nil
+        def contract
+          @contract ||= download_contract
+        end
+
+        private
+
+          # Internal: Downloads the contract
+          #
+          # Returns a @StringIO with the contract buffer or nil
+          def download_contract
+            response = connection.get(response["contract_file"])
+            if response.success?
+              buffer = StringIO.new(response.body)
+              buffer.set_encoding("ASCII-8BIT")
+            end
+
+            buffer
+          end
       end
     end
   end
