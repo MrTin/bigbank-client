@@ -67,7 +67,7 @@ fields.each { |field| puts field }
 
 ### Application
 Create a loan application. You pass in the fields, they are however specific to
-your application so you not to look up what fields you are expected to POST.
+your application so you need to look up what fields you are expected to POST.
 ```ruby
 response = Bigbank::Client::Application.create({
     ...
