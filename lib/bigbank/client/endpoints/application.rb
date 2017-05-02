@@ -22,7 +22,7 @@ module Bigbank
       end
 
       class ApplicationResult < Result
-        attr_reader :connection
+        attr_accessor :connection
 
         def initialize(result, connection)
           # TODO: Better make the connection statically available?
@@ -43,9 +43,11 @@ module Bigbank
           #
           # Returns a @StringIO with the contract buffer or nil
           def download_contract
-            response = connection.get(response["contract_file"])
-            if response.success?
-              buffer = StringIO.new(response.body)
+            return nil unless response.success?
+
+            contract_response = connection.get(response.body["contract_file"])
+            if contract_response.success?
+              buffer = StringIO.new(contract_response.body)
               buffer.set_encoding("ASCII-8BIT")
             end
 
