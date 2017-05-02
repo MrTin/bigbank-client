@@ -32,7 +32,7 @@ module Bigbank
 
         # Public: Returns the downloaded contract
         #
-        # Returns a @StringIO with the contract buffer or nil
+        # Returns a @Tempfile with the contract buffer or nil
         def contract
           @contract ||= download_contract
         end
@@ -41,14 +41,15 @@ module Bigbank
 
           # Internal: Downloads the contract
           #
-          # Returns a @StringIO with the contract buffer or nil
+          # Returns a @Tempfile with the contract buffer or nil
           def download_contract
             return nil unless response.success?
 
             contract_response = connection.get(response.body["contract_file"])
             if contract_response.success?
-              buffer = StringIO.new(contract_response.body)
-              buffer.set_encoding("ASCII-8BIT")
+              buffer = Tempfile.new(["bigbank_client-contract", ".pdf"], encoding: "ascii-8bit")
+              buffer.write(contract_response.body)
+              buffer.rewind
             end
 
             buffer

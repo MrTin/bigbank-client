@@ -76,7 +76,7 @@ response = Bigbank::Client::Application.create({
 ```
 
 #### Extra methods the result of this endpoint:
-- `#contract` downloads the contract and returns a `StringIO` or `nil`
+- `#contract` downloads the contract and returns a `Tempfile` or `nil`
 
 ## Using a proxy
 If you are running into SSL issue while making `https://` requests you are
