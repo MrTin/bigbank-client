@@ -17,7 +17,7 @@ module BigbankClient
         request.body = { key: config.partner_key }.merge!(post_params)
       end
 
-      ApplicationResult.new(response, connection)
+      ::BigbankClient::ApplicationResult.new(response, connection)
     end
 
     class ApplicationResult < Result
@@ -46,7 +46,7 @@ module BigbankClient
 
           contract_response = connection.get(response.body["contract_file"])
           if contract_response.success?
-            buffer = StringIO.new(contract_response.body)
+            buffer = ::StringIO.new(contract_response.body)
             buffer.set_encoding("ASCII-8BIT")
           end
 

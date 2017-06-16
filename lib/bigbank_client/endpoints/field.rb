@@ -10,7 +10,7 @@ module BigbankClient
         request.params = { get: "values", key: config.partner_key }
       end
 
-      Result.new(response)
+      ::BigbankClient::Result.new(response)
     end
   end
 end

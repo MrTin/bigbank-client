@@ -13,7 +13,7 @@ module BigbankClient
       @endpoint = "https://ansok.bigbank.se/"
       @open_timeout = 5
       @timeout = 15
-      @adapter = Faraday.default_adapter
+      @adapter = ::Faraday.default_adapter
       @verify_ssl = true
       @enable_proxy = false
       @proxy = ""

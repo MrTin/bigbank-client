@@ -16,9 +16,9 @@ module BigbankClient
   end
 
   def self.configure
-    self.config ||= BigbankClient::Config.new
+    self.config ||= ::BigbankClient::Config.new
     yield(config)
   end
 end
 
-BigbankClient.configure {}
+::BigbankClient.configure {}

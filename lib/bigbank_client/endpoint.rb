@@ -15,7 +15,7 @@ module BigbankClient
     end
 
     def config
-      Bigbank::Client.config
+      ::BigbankClient.config
     end
 
     def user_agent
