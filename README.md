@@ -24,7 +24,7 @@ your servers.
 # - Sweden: https://www.bigbank.se/
 # - Spain: https://www.bigbank.es/
 
-Bigbank::Client.configure do |config|
+BigbankClient::Client.configure do |config|
   config.endpoint = "https://ansok.bigbank.se/"
   config.partner_key = "super-secret-partner-key"
   # config.adapter = Faraday.default_adapter
@@ -35,8 +35,8 @@ end
 ```
 
 ## Usage
-Endpoint requests will return a `Bigbank::Client::Result` or a child of this
-class e.g. `Bigbank::Client::ApplicationResult` which you can then work with as
+Endpoint requests will return a `BigbankClient::Client::Result` or a child of this
+class e.g. `BigbankClient::Client::ApplicationResult` which you can then work with as
 if it was an Enumerable.
 
 Any method that you call and is not defined on the result class will be
@@ -49,8 +49,8 @@ work directly with the result as an `Enumarable` calling e.g. `#each` or
 
 ### Example result
 ```ruby
-fields = Bigbank::Client::Fields.all
-#=> <Bigbank::Client::Result:0x007fc7698a3b48>
+fields = BigbankClient::Client::Fields.all
+#=> <BigbankClient::Client::Result:0x007fc7698a3b48>
 
 fields.each { |field| puts field }
 ```
@@ -59,8 +59,8 @@ fields.each { |field| puts field }
 ### Fields
 Retrieve all fields to build a loan application form.
 ```ruby
-fields = Bigbank::Client::Fields.all
-# => <Bigbank::Client::Result:0x007fc7698a3b48>
+fields = BigbankClient::Client::Fields.all
+# => <BigbankClient::Client::Result:0x007fc7698a3b48>
 
 fields.each { |field| puts field }
 ```
@@ -69,10 +69,10 @@ fields.each { |field| puts field }
 Create a loan application. You pass in the fields, they are however specific to
 your application so you need to look up what fields you are expected to POST.
 ```ruby
-response = Bigbank::Client::Application.create({
+response = BigbankClient::Client::Application.create({
     ...
   })
-# => #<Bigbank::Client::Result:0x007fc7698a3b48>
+# => #<BigbankClient::Client::Result:0x007fc7698a3b48>
 ```
 
 #### Extra methods the result of this endpoint:
@@ -100,7 +100,6 @@ Bug reports and pull requests are welcome on GitHub at
 https://github.com/mrtin/bigbank-client. This project is intended to be a safe,
 welcoming space for collaboration, and contributors are expected to adhere to
 the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
 
 ## License
 The gem is available as open source under the terms of the

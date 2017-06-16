@@ -1,4 +1,4 @@
-module Bigbank
+module BigbankClient
   module Client
     # TODO: methods to stub/mock
 

@@ -1,4 +1,4 @@
-module Bigbank
+module BigbankClient
   module Client
     Error = Class.new(StandardError)
   end

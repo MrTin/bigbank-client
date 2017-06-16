@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'bigbank/client/version'
+require 'bigbank_client/client/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "bigbank-client"
-  spec.version       = Bigbank::Client::VERSION
+  spec.version       = BigbankClient::Client::VERSION
   spec.authors       = ["Martin Samami"]
   spec.email         = ["martin@digitalkookie.io"]
 

@@ -10,17 +10,17 @@ require_relative "client/result"
 require_relative "client/endpoints/field"
 require_relative "client/endpoints/application"
 
-module Bigbank
+module BigbankClient
   module Client
     class << self
       attr_accessor :config
     end
 
     def self.configure
-      self.config ||= Bigbank::Client::Config.new
+      self.config ||= ::BigbankClient::Client::Config.new
       yield(config)
     end
   end
 end
 
-Bigbank::Client.configure {}
+BigbankClient::Client.configure {}

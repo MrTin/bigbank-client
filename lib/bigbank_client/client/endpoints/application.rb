@@ -1,4 +1,4 @@
-module Bigbank
+module BigbankClient
   module Client
     class Application < Endpoint
       attr_accessor :post_params

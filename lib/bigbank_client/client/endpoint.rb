@@ -1,4 +1,4 @@
-module Bigbank
+module BigbankClient
   module Client
     class Endpoint
       def connection
@@ -16,11 +16,11 @@ module Bigbank
       end
 
       def config
-        Bigbank::Client.config
+        ::BigbankClient::Client.config
       end
 
       def user_agent
-        "bigbank-client v#{::Bigbank::Client::VERSION} (github.com/mrtin/bigbank-client)"
+        "bigbank-client v#{::BigbankClient::Client::VERSION} (github.com/mrtin/bigbank-client)"
       end
     end
   end

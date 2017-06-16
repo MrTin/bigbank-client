@@ -1,6 +1,6 @@
 $LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
 
-require "bigbank/client"
+require "bigbank_client/client"
 
 require "minitest/autorun"
 require "webmock/minitest"

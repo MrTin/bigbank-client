@@ -1,4 +1,4 @@
-module Bigbank
+module BigbankClient
   module Client
     class Field < Endpoint
       def self.all

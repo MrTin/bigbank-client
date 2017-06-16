@@ -1,4 +1,4 @@
-module Bigbank
+module BigbankClient
   module Client
     class Config
       attr_accessor :endpoint,

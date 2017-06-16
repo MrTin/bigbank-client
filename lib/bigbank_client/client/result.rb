@@ -1,4 +1,4 @@
-module Bigbank
+module BigbankClient
   module Client
     class Result
       attr_accessor :response

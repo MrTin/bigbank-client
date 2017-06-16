@@ -1,7 +1,7 @@
 require "test_helper"
 
-describe Bigbank::Client do
-  subject { Bigbank::Client }
+describe BigbankClient::Client do
+  subject { BigbankClient::Client }
   let(:endpoint_url) { "https://ansok.bigbank.se/" }
   let(:other_endpoint_url) { "http://another-apply.example.com/" }
 
